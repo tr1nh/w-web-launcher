@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W Web Launcher</title>
+
+  <style>
+    /* document */
+    * {
+      box-sizing: border-box;
+      font-family: Arial Helvetica sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    /* web view */
+    #app {
+      width: 100%;
+      height: 100vh;
+      padding: 1em;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #fff url('./images/background.jpg') no-repeat center center;
+      background-size: cover;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1><a href="./index.html">W Web Launcher</a></h1>
+    <p>Customize homescreen with your web skill</p>
+    <h2>How to change website</h2>
+    <ul>
+      <li>Create website and save as index.html</li>
+      <li>You can use other assets such as: images, CSS, JavaScript in same folder</li>
+      <li>You can open an app installed in your phone by call js function openApp('packageName'), for example: openApp('com.android.dialer')</li>
+      <li>Open menu settings in corner top right and choose folder contain file index.html</li>
+    </ul>
+    <h2>About</h2>
+    <ul>
+      <li>Email: trandiepkhanhtrinh@gmail.com</li>
+      <li>Github: <a href="https://github.com/tr1nh">github.com/tr1nh</a></li>
+      <li>Facebook: <a href="https://fb.com/trandiepkhanhtrinh">fb.com/trandiepkhanhtrinh</a></li>
+    </ul>
+  </div>
+</body>
+
+</html>

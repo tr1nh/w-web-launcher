@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W Web Launcher</title>
+
+  <style>
+    /* document */
+    * {
+      box-sizing: border-box;
+      font-family: Arial Helvetica sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    /* web view */
+    #app {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #000 url('./images/background.jpg') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+    }
+
+    /* clock widget */
+    .clock-container {
+      padding: 2em 1em 1em 1em;
+    }
+
+    .clock-container #clock {
+      margin: 0;
+      font-size: 3em;
+    }
+
+    .clock-container #calendar {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    /* list apps */
+    .apps-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: scroll;
+    }
+
+    .apps-container .app {
+      padding: 0 1em;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #fff;
+      display: block;
+    }
+
+    .apps-container .app:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="clock-container">
+      <p id="clock">HH:MM</p>
+      <p id="calendar">yyyy/mm/dd</p>
+    </div>
+
+    <div class="apps-container">
+      <a class="app" href="https://google.com">
+        <div class="icon"></div>
+        <p class="name">Search</p>
+      </a>
+      <a class="app" href="https://google.com/imghp">
+        <div class="icon"></div>
+        <p class="name">Pictures</p>
+      </a>
+      <a class="app" href="https://youtube.com">
+        <div class="icon"></div>
+        <p class="name">Youtube</p>
+      </a>
+      <a class="app" href="./help.html">
+        <div class="icon"></div>
+        <p class="name">Help</p>
+      </a>
+      <a class="app" href="#" onclick="doOpenDrawer()">
+        <div class="icon"></div>
+        <p class="name">App</p>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      updateClock();
+      var calculateClock = setInterval(updateClock, 5000);
+    };
+
+    function updateClock() {
+      var now = new Date();
+      var newClock = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
+      var newCalendar = now.getFullYear() + '/' + (now.getMonth() < 10 ? '0' + (now.getMonth() + 1) : now.getMonth() + 1) + '/' + (now.getDate() < 10 ? '0' + now.getDate() : now.getDate());
+
+      document.getElementById('clock').innerHTML = newClock;
+      document.getElementById('calendar').innerHTML = newCalendar;
+    }
+
+    function doOpenApp(packageName) {
+      openApp.postMessage(packageName);
+    }
+
+    function doOpenDrawer(packageName) {
+      openDrawer.postMessage('open drawer');
+    }
+  </script>
+</body>
+
+</html>
