@@ -1,16 +1,15 @@
-# w_web_launcher
+# W Web Launcher
 
-A new Flutter project.
+Use webview as Android home screen.
 
-## Getting Started
+## Change default page
 
-This project is a starting point for a Flutter application.
+*   Create website and save as index.html
+*   You can use other resources such as: images, CSS, JavaScript
+*   You can open an app installed in your phone by call function openApp('packageName'), for example: openApp('com.android.dialer')
+*   Open menu settings in corner top right and choose folder contain file index.html
 
-A few resources to get you started if this is your first Flutter project:
+## Preview
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![preview-gif](./20210609151338.gif)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
